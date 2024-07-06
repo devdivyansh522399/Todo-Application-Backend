@@ -81,9 +81,6 @@ exports.updateTodo = async (req, res) => {
         if (description) updatedFields.description = description;
         if(datetime) updatedFields.datetime = datetime;
         if(priority) updatedFields.priority = priority;
-        // if (dueDate) updatedFields.dueDate = dueDate;
-        console.log(datetime)
-        // Find the Todo by ID and update it
         const updatedTodo = await Todo.findByIdAndUpdate(todoId, updatedFields,
             { new: true }
         );
@@ -152,7 +149,6 @@ exports.getAllUserTodos = async (req, res) => {
 
     try {
         const userId = req.user.id;
-        console.log(req.user)
         // Check if userId is provided
         if (!userId) {
             return res.status(400).json({
