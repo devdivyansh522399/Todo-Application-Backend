@@ -15,12 +15,9 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-    cors({
-        origin: "https://todo-application-front-end.vercel.app/",
-        credentials: true,
-    })
-);
+app.use(cors({
+  origin : "https://todo-application-front-end.vercel.app"
+}));
 
 // Routes
 app.use("/api/v1/auth", userRoutes);
